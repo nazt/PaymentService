@@ -10,7 +10,7 @@
             <xsd:element name="lastname" type="xsd:string"></xsd:element>
             <xsd:element name="cctype" type="tns:CreditCardType"/>
             <xsd:element name="ccnumber" type="tns:CCNumber"/>
-            <xsd:element name="expire" type="xsd:date"/>
+            <xsd:element name="expire" type="tns:expirationType"/>
             <xsd:element name="csc" type="tns:CSC"/>
             <xsd:element name="amount" type="xsd:float"/>
             <xsd:element name="monetary" type="tns:monentaryList"/>
@@ -25,7 +25,7 @@
     </xsd:simpleType>
     <xsd:simpleType name="CSC">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="\d{4}"/>
+            <xsd:pattern value="\d{3}"/>
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:simpleType name="CreditCardType">
@@ -45,7 +45,7 @@
     </xsd:simpleType>
     <xsd:simpleType name="postalcodeType">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="\d{6}"/>
+            <xsd:pattern value="\d{5}"/>
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:complexType name="BillingInfoType">
@@ -59,6 +59,13 @@
             <xsd:element name="email" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
+        <xsd:simpleType name="expirationType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d\d/\d\d"/>
+        </xsd:restriction>
+    </xsd:simpleType>
 </xsd:schema>
+
+
 
 
