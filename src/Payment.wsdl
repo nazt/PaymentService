@@ -6,30 +6,27 @@
     <types>
         <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/Payment" xmlns:ns1="http://xml.netbeans.org/schema/PaymentService">
             <xsd:import namespace="http://xml.netbeans.org/schema/PaymentService" schemaLocation="Payment.xsd"/>
-            <xsd:element name="DescriptionRequest">
+            <xsd:element name="PaymentRequest" type="tns:requestType"></xsd:element>
+            <xsd:element name="PaymentResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element name="CardNumber" type="xsd:string"></xsd:element>
-                        <xsd:element name="CVV" type="xsd:string"></xsd:element>
-                        <xsd:element name="Price" type="xsd:float"></xsd:element>
-                        <xsd:element name="Expire" type="xsd:date"></xsd:element>
+                        <xsd:element name="PaymentResult" type="xsd:boolean"></xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="DescriptionResponse">
-                <xsd:complexType>
-                    <xsd:sequence>
-                        <xsd:element name="Verify" type="xsd:boolean"></xsd:element>
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
+            <xsd:complexType name="requestType">
+                <xsd:sequence>
+                    <xsd:element name="paymentInfo" type="ns1:PaymentType"></xsd:element>
+                    <xsd:element name="billingInfo" type="ns1:BillingInfoType"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
         </xsd:schema>
     </types>
     <message name="PaymentOperationRequest">
-        <part name="body" element="tns:DescriptionRequest"/>
+        <part name="body" element="tns:PaymentRequest"/>
     </message>
     <message name="PaymentOperationResponse">
-        <part name="body" element="tns:DescriptionResponse"/>
+        <part name="body" element="tns:PaymentResponse"/>
     </message>
     <portType name="PaymentPortType">
         <operation name="PaymentOperation">
@@ -61,4 +58,5 @@ A partner link type characterizes the conversational relationship between two se
         <plnk:role name="PaymentPortTypeRole" portType="tns:PaymentPortType"/>
     </plnk:partnerLinkType>
 </definitions>
+
 
