@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://xml.netbeans.org/schema/PaymentService"
+    xmlns:tns="http://xml.netbeans.org/schema/PaymentService"
+    elementFormDefault="qualified">
+    <xsd:complexType name="PaymentType">
+        <xsd:sequence>
+            <xsd:element name="firstname" type="xsd:string"></xsd:element>
+            <xsd:element name="lastname" type="xsd:string"></xsd:element>
+            <xsd:element name="cctype" type="tns:CreditCardType"/>
+            <xsd:element name="ccnumber" type="tns:CCNumber"/>
+            <xsd:element name="expire" type="xsd:date"/>
+            <xsd:element name="csc" type="tns:CSC"/>
+            <xsd:element name="amount" type="xsd:float"/>
+            <xsd:element name="monetary" type="tns:monentaryList"/>
+            <xsd:element name="billinginfo" type="tns:BillingInfoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Payment" type="tns:PaymentType"/>
+    <xsd:simpleType name="CCNumber">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{16}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="CSC">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{4}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="CreditCardType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Visa"/>
+            <xsd:enumeration value="Master Card"/>
+            <xsd:enumeration value="American Express,"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="monentaryList">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Thai Baht"/>
+            <xsd:enumeration value="U.S. Dollar"/>
+            <xsd:enumeration value="British Pound"/>
+            <xsd:enumeration value="Euro"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="postalcodeType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{6}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="BillingInfoType">
+        <xsd:sequence>
+            <xsd:element name="country" type="xsd:string"></xsd:element>
+            <xsd:element name="address" type="xsd:string"></xsd:element>
+            <xsd:element name="city" type="xsd:string"></xsd:element>
+            <xsd:element name="state" type="xsd:string"></xsd:element>
+            <xsd:element name="postalcode" type="tns:postalcodeType"></xsd:element>
+            <xsd:element name="tel" type="xsd:string"/>
+            <xsd:element name="email" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
+
+
