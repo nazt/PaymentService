@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Payment.xml
+    Created on : September 23, 2009, 8:57 AM
+    Author     : NAzT
+    Description:
+        Purpose of the document follows.
+-->
+
+<ns0:Payment  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns0='http://xml.netbeans.org/schema/PaymentService'
+   xsi:schemaLocation='http://xml.netbeans.org/schema/PaymentService Payment.xsd'>
+        <ns0:firstname>Nat</ns0:firstname>
+        <ns0:lastname>Weerawan</ns0:lastname>
+        <ns0:cctype>Visa</ns0:cctype>
+        <ns0:ccnumber>1234567891234567</ns0:ccnumber>
+        <ns0:expire>06/09</ns0:expire>
+        <ns0:csc>144</ns0:csc>
+        <ns0:amount>1200</ns0:amount>
+        <ns0:monetary>Thai Baht</ns0:monetary>
+        <ns0:billinginfo>
+                <ns0:country>Thailand</ns0:country>
+                <ns0:address>111/221</ns0:address>
+                <ns0:city>Pathumthani</ns0:city>
+                <ns0:state>-</ns0:state>
+                <ns0:postalcode>12121</ns0:postalcode>
+                <ns0:tel>0891278552</ns0:tel>
+                <ns0:email>nat.wrw@gmail.com</ns0:email>
+            </ns0:billinginfo>
+</ns0:Payment>
